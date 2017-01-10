@@ -1,0 +1,235 @@
+<ion-view view-title="编辑名片" hide-nav-bar="false" hide-back-button="true" hide-tabs style="background: #edf1f4;">
+    <ion-nav-buttons side="right">
+            <span id="saveBtnId" class="right_save" ng-click="cardSave()" on-hold="popupMessageOpthins()">保存</span>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+        <i class="left_cancel" on-touch="backOnclick()">
+            取消
+        </i>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="false" scrollbar-y="false" style="overflow: hidden;background:#fff;">
+        <div style="width:100%;height:10px;background: #edf1f4"></div>
+        <div class="row actRow" style="font-size: 16px;">
+            <div class="col col-33 padding_left" style="text-align:left;">
+                <span>联系人姓名</span>
+            </div>
+            <div class="col col-67 padding_right">
+                <input placeholder="必填" style="font-size: 16px;" class="put" ng-model="editCardDetail.contacts">
+            </div>
+        </div>
+        <div style="width:100%;height:10px;background: #edf1f4"></div>
+        <div class="row row_title">
+            <div class="col col-33 row_title_col_one" style="text-align:left;">
+                <i class="icon-sf-company icon_position" style="color:#5589f9;"></i>
+                <span style="font-size:16px;font-weight: 600;">公司</span>
+            </div>
+        </div>
+        <div class="con_padding_left">
+            <div class="row actRow">
+                <div class="col col-20 padding_no left_color" style="text-align:left;">
+                    <span>公司</span>
+                </div>
+                <div class="col col-80 padding_right">
+                    <input placeholder="必填" class="put" ng-model="editCardDetail.companyName">
+                </div>
+            </div>
+            <div class="row actRow" ng-show="false">
+                <div class="col col-20 padding_no left_color" style="text-align:left; border-right:1px solid #EDF1F4">
+                    <span style="color:#09A8FC">部门</span>
+                </div>
+                <div class="col col-80 padding_right">
+                    <input placeholder="必填" class="put">
+                </div>
+            </div>
+            <div class="row actRow last-row">
+                <div class="col col-20 padding_no left_color" style="text-align:left;">
+                    <span>职位</span>
+                </div>
+                <div class="col col-80 padding_right">
+                    <input placeholder="必填" class="put" ng-model="editCardDetail.position">
+                </div>
+            </div>
+            <div class="row actRow" ng-show="false">
+                <div class="col col-30 padding_no left_color" style="text-align:left;">
+                    <span>添加公司信息</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="width:100%;height:10px;background: #edf1f4"></div>
+        <div class="row row_title">
+            <div class="col col-33 row_title_col_one" style="text-align:left;">
+                <i class="icon-sf-phone icon_position" style="color:#4DD069;"></i>
+                <span>联系方式</span>
+            </div>
+        </div>
+        <div class="con_padding_left">
+            <div class="row actRow">
+                <div class="col col-20 padding_no left_color" style="text-align:left;">
+                    <span>手机</span>
+                </div>
+                <div class="col col-80 padding_right">
+                    <input placeholder="必填" class="put" ng-model="editCardDetail.phone">
+                </div>
+            </div>
+            <div class="row actRow ">
+                <div class="col col-20 padding_no left_color" style="text-align:left;">
+                    <span>工作电话</span>
+                </div>
+                <div class="col col-80 padding_right">
+                    <input placeholder="非必填" class="put" ng-model="editCardDetail.tel">
+                </div>
+            </div>
+            <div class="row actRow" ng-show="false">
+                <div class="col col-20 padding_no left_color" style="text-align:left;">
+                    <span>工作传真</span>
+                </div>
+                <div class="col col-80 padding_right">
+                    <input placeholder="非必填" class="put">
+                </div>
+            </div>
+            <div class="row actRow" ng-show="false">
+                <div class="col col-30 padding_no left_color" style="text-align:left;">
+                    <span>添加电话</span>
+                </div>
+            </div>
+            <div class="row actRow">
+                <div class="col col-20 padding_no left_color" style="text-align:left;">
+                    <span>工作邮箱</span>
+                </div>
+                <div class="col col-80 padding_right">
+                    <input placeholder="非必填" class="put" ng-model="editCardDetail.email">
+                </div>
+            </div>
+            <div class="row actRow" ng-show="false">
+                <div class="col col-30 padding_no left_color">
+                    <span>添加邮箱</span>
+                </div>
+            </div>
+            <div class="row actRow">
+                <div class="col col-20 padding_no left_color" style="text-align:left;">
+                    <span>地址</span>
+                </div>
+                <div class="col col-80 padding_right">
+                    <input placeholder="必填" class="put" ng-model="editCardDetail.customerAddress">
+                </div>
+            </div>
+            <div class="row actRow" ng-show="false">
+                <div class="col col-30 padding_no left_color" style="text-align:left;">
+                    <span>添加地址</span>
+                </div>
+            </div>
+            <div class="row actRow last-row">
+                <div class="col col-20 padding_no left_color" style="text-align:left;">
+                    <span>备注</span>
+                </div>
+                <div class="col col-80 padding_right">
+                    <input placeholder="非必填" class="put" ng-model="editCardDetail.remark">
+                </div>
+            </div>
+        </div>
+
+
+        
+        <!--<div style="height:12px;width:100%;background-color:#EDF1F4;border-bottom:solid 1px #F0F1F1;"></div>
+        <div>
+            <div>
+                <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                    <div class="col col-20" style="text-align:left; border-right:1px solid #EDF1F4"><span style="color:#09A8FC">公司</span></div>
+                    <div class="col col-80" style="text-align:left;">
+                        <input placeholder="必填" style="width:100%; border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" ng-model="editCardDetail.companyName">
+                    </div>
+                </div>
+            </div>
+            <div ng-show="false">
+                <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                    <div class="col col-20" style="text-align:left; border-right:1px solid #EDF1F4"><span style="color:#09A8FC">部门</span></div>
+                    <div class="col col-80" style="text-align:left;">
+                        <input style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                    <div class="col col-20" style="text-align:left; border-right:1px solid #EDF1F4"><span style="color:#09A8FC">职位</span></div>
+                    <div class="col col-80" style="text-align:left;">
+                        <input placeholder="必填" style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" ng-model="editCardDetail.position">
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="border-bottom:solid 1px #F0F1F2;" ng-show="false">
+                <div class="col col-30" style="text-align:left;"><span style="color:#09A8FC">添加公司信息</span></div>
+            </div>
+        </div>-->
+
+        <!--<div>
+            <div>
+                <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                    <div class="col col-20" style="text-align:left; border-right:1px solid #EDF1F4"><span style="color:#09A8FC">手机</span></div>
+                    <div class="col col-80" style="text-align:left;">
+                        <input placeholder="必填" style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" ng-model="editCardDetail.phone">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                    <div class="col col-20" style="text-align:left; border-right:1px solid #EDF1F4"><span style="color:#09A8FC">工作电话</span></div>
+                    <div class="col col-80" style="text-align:left;">
+                        <input placeholder="非必填" style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" ng-model="editCardDetail.tel">
+                    </div>
+                </div>
+            </div>
+            <div ng-show="false">
+                <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                    <div class="col col-20" style="text-align:left; border-right:1px solid #EDF1F4"><span style="color:#09A8FC">工作传真</span></div>
+                    <div class="col col-80" style="text-align:left;">
+                        <input placeholder="非必填" style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;">
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="border-bottom:solid 1px #F0F1F2;" ng-show="false">
+                <div class="col col-30" style="text-align:left;"><span style="color:#09A8FC">添加电话</span></div>
+            </div>
+        </div>
+        <div style="height:12px;width:100%;background-color:#EDF1F4;border-bottom:solid 1px #F0F1F1;"></div>-->
+        <!--<div>
+            <div>
+                <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                    <div class="col col-20" style="text-align:left; border-right:1px solid #EDF1F4"><span style="color:#09A8FC">工作邮箱</span></div>
+                    <div class="col col-80" style="text-align:left;">
+                        <input placeholder="非必填" style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" ng-model="editCardDetail.email">
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="border-bottom:solid 1px #F0F1F2;" ng-show="false">
+                <div class="col col-30" style="text-align:left;"><span style="color:#09A8FC">添加邮箱</span></div>
+            </div>
+        </div>
+
+        <div style="height:12px;width:100%;background-color:#EDF1F4;border-bottom:solid 1px #F0F1F1;"></div>
+        <div>
+            <div>
+                <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                    <div class="col col-20" style="text-align:left; border-right:1px solid #EDF1F4"><span style="color:#09A8FC">地址</span></div>
+                    <div class="col col-80" style="text-align:left;">
+                        <input placeholder="必填" style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;width:100%;" ng-model="editCardDetail.customerAddress">
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="border-bottom:solid 1px #F0F1F2;" ng-show="false">
+                <div class="col col-30" style="text-align:left;"><span style="color:#09A8FC">添加地址</span></div>
+            </div>
+        </div>
+        <div style="height:12px;width:100%;background-color:#EDF1F4;border-bottom:solid 1px #F0F1F1;"></div>
+        <div>
+            <div>
+                <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                    <div class="col col-20" style="text-align:left; border-right:1px solid #EDF1F4"><span style="color:#09A8FC">备注</span></div>
+                    <div class="col col-80" style="text-align:left;">
+                        <input placeholder="非必填" style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;width:100%;" ng-model="editCardDetail.remark">
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </ion-content>
+</ion-view>

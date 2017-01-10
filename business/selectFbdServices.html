@@ -1,0 +1,34 @@
+<ion-view view-title="选择分点部" hide-tabs>
+    <ion-nav-title>
+        <span class="nav_title">选择分点部</span>
+    </ion-nav-title>
+
+    <ion-nav-bar class="header_color">
+        <ion-nav-buttons side="left">
+            <div style="font-size:1em;padding-top:7px;" ng-click="onCancle()">取消</div>
+        </ion-nav-buttons>
+
+        <ion-nav-buttons side="right">
+            <div style="font-size:1em;padding-top:7px;" ng-click="onConfirm()">确认</div>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+
+    <!--chance module-->
+    <ion-content>
+        <label class="item-xb item-checkbox" data-ng-repeat="prod in prodList track by $index" id={{prod.type_id}}
+               name="{{prod.type_name}}" ng-checked="isSelected(prod.type_id)"
+               ng-click="updateSelection($event,prod.type_id)"
+               checked="isSelected(prod.type_id)">
+            <div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-square">
+                <input type="checkbox" name="{{prod.type_name}}" ng-checked="isSelected(prod.type_id)">
+                <i class="checkbox-icon"></i></div>
+            <div class="item-content disable-pointer-events">
+                <div class="row" style="padding-left: 16px;text-align: center;">
+                    <div class="col col-50 ng-binding" style="text-align: left;">{{ prod.type_name }}</div>
+                    <div class="col col-50 ng-binding" style="text-align: center;">{{ prod.type_code }}</div>
+                </div>
+            </div>
+        </label>
+    </ion-content>
+</ion-view>

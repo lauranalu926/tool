@@ -1,0 +1,56 @@
+<ion-view view-title="知识库" hide-tabs>
+    <ion-nav-title>
+        <span class="nav_title">知识库</span>
+    </ion-nav-title>
+    <div class="bar bar-subheader" style="padding:0;border:0px;width:100%;background-color:#EDF1F4">
+        <form id="searchForm">
+            <div class="item-input-inset search_inset">
+                <div class="item-input-wrapper search_wrapper div_flex">
+                    <div class="one_Divide div_flex">
+                        <input class="search_input one_Divide" ng-model="keyVal" ng-change="startDot()" type="search" placeholder="标题" id="inputSearch" >
+                        <i class="ion-close-circled vertical_middle" id="search_close_btn" style="color: #CCCCCC;display: none;padding: 0px 7px;" ng-click="clearAll()"></i>
+                    </div>
+                    <span class="search_vertical_line"></span>
+                    <div style="width:20px;">
+                        <i class="icon icon-sf-search search_ico_btn" ng-click="EnterpriseSearch()"></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <ion-content overflow-scroll="false" style="top:131px;">
+        <div class="list">
+            <ion-item class="item-avatar" ng-click="onServiceProperty('tool')">
+                <img src="img/card_01.png">
+                <h2 style="position: absolute;top:20px;" >服务产权知识</h2>
+                <i style="position: absolute;top:20px; right:10px;color:#B4B4B4;" class="icon ion-chevron-right dark"></i>
+            </ion-item>
+            <ion-item class="item-avatar" ng-click="onRepository('tool')">
+                <img src="img/card_01.png">
+                <h2 style="position: absolute;top:20px;">流程制度</h2>
+                <i style="position: absolute;top:20px; right:10px;color:#B4B4B4;" class="icon ion-chevron-right dark"></i>
+            </ion-item>
+            <ion-item class="item-avatar" ng-click="onRepository('tool')">
+                <img src="img/card_01.png">
+                <h2 style="position: absolute;top:20px;">案例&解决方案</h2>
+                <i style="position: absolute;top:20px; right:10px;color:#B4B4B4;" class="icon ion-chevron-right dark"></i>
+            </ion-item>
+            <ion-item  class="item-avatar" ng-click="BusinessLook('tool')">
+                <img src="img/card_01.png">
+                <h2 style="position: absolute;top:20px;">销售工具技能</h2>
+                <i style="position: absolute;top:20px; right:10px;color:#B4B4B4;" class="icon ion-chevron-right dark"></i>
+            </ion-item>
+            <ion-item class="item-avatar" ng-click="onRepository('tool')">
+                <img src="img/card_01.png">
+                <h2 style="position: absolute;top:20px;">销售系统</h2>
+                <i style="position: absolute;top:20px; right:10px;color:#B4B4B4;" class="icon ion-chevron-right dark"></i>
+            </ion-item>
+            <ion-item class="item-avatar" ng-click="onRepository('tool')">
+                <img src="img/card_01.png">
+                <h2 style="position: absolute;top:20px;">我的收藏</h2>
+                <i style="position: absolute;top:20px; right:10px;color:#B4B4B4;" class="icon ion-chevron-right dark"></i>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

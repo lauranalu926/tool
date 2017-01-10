@@ -1,0 +1,241 @@
+<style>
+    .item{
+        white-space: normal;
+    }
+</style>
+<ion-view view-title="企业详情" hide-tabs style="background: #edf1f4;">
+    <ion-nav-title>
+        <span class="nav_title">{{enterpriseName}}</span>
+    </ion-nav-title>
+    <!--chance module-->
+    <ion-content verflow-scroll="false" scrollbar-y="false">
+        <div style="background:#fff;">
+            <div style="width:100%;height:10px;background: #edf1f4"></div>
+            <div class="row row_title" ng-click="baseInfOnclick()">
+                <div class="col col-33 row_title_col_one" style="text-align:left;">
+                    <i class="icon-sf-basic_infor icon_position" style="color:#4981F8;"></i>
+                    <span style="font-size:16px;font-weight: 600;">基本信息</span>
+                </div>
+                <div class="col col-67 row_title_col_tow" style="text-align:right;color:#a2a2a2;">
+                    <span id="iconId" class="icon-sf-packup_btn"></span>
+                </div>
+            </div>
+
+            <div ng-show="baseInformation" class="con_padding_left">
+                <div class="row actRow">
+                    <div class="col col-30 padding_no left_color">注册资本</div>
+                    <div class="col col-70 padding_right" style="text-align:right;">{{EnterpriseDetail.registeredCapital}}</div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-30 padding_no left_color">法人</div>
+                    <div class="col col-70 padding_right" style="text-align:right;">{{EnterpriseDetail.legalRepresentative}}</div>
+                </div>
+                <div class="row actRow" style="line-height: normal;padding: 12px 0px;">
+                    <div class="col col-30 padding_no left_color">地址</div>
+                    <div class="col col-70 padding_right" style="text-align:right;line-height: 20px;">
+                        <span ng-show="!EnterpriseDetail.registeredAddress">/</span>{{EnterpriseDetail.registeredAddress}}</div>
+                </div>
+
+                <div class="row actRow" style="line-height: normal;padding: 12px 0px;">
+                    <div class="col col-30 padding_no left_color">经营范围</div>
+                    <div class="col col-70 padding_right" style="text-align:right;line-height: 20px;">
+                        <span ng-show="!EnterpriseDetail.businessScope">/</span>{{EnterpriseDetail.businessScope}}</div>
+                </div>
+                <div class="row actRow" style="line-height: normal;padding: 12px 0px;">
+                    <div class="col col-30 padding_no left_color">行业</div>
+                    <div class="col col-70 padding_right" style="text-align:right;line-height: 20px;">
+                        <span ng-repeat="d in EnterpriseDetail.domains">{{d.domain}}<br/></span>
+                    </div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-30 padding_no left_color">营业期限</div>
+                    <div class="col col-70 padding_right" style="text-align:right;">{{EnterpriseDetail.startManagementDate}} - {{EnterpriseDetail.endManagementDate}}</div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-30 padding_no left_color">所属工商局</div>
+                    <div class="col col-70 padding_right" style="text-align:right;">{{EnterpriseDetail.registrationAuthority}}</div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-30 padding_no left_color">核准日期</div>
+                    <div class="col col-70 padding_right" style="text-align:right;">{{EnterpriseDetail.approvedDate}}</div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-30 padding_no left_color">成立日期</div>
+                    <div class="col col-70 padding_right" style="text-align:right;">{{EnterpriseDetail.establishDate}}</div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-30 padding_no left_color">注销日期</div>
+                    <div class="col col-70 padding_right" style="text-align:right;">{{EnterpriseDetail.cancelDate}}</div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-30 padding_no left_color">省份</div>
+                    <div class="col col-70 padding_right" style="text-align:right;">{{EnterpriseDetail.province}}</div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-30 padding_no left_color">城市</div>
+                    <div class="col col-70 padding_right" style="text-align:right;">{{EnterpriseDetail.city}}</div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-30 padding_no left_color">网址</div>
+                    <div class="col col-70 padding_right" style="text-align:right;"><span ng-repeat="w in EnterpriseDetail.websites">{{w.webUrl}}<br/></span></div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-30 padding_no left_color">联系电话</div>
+                    <div class="col col-70 padding_right" style="text-align:right;">{{EnterpriseDetail.phone}}</div>
+                </div>
+                <div class="row actRow last-row">
+                    <div class="col col-30 padding_no left_color">联系邮件</div>
+                    <div class="col col-70 padding_right" style="text-align:right;">{{EnterpriseDetail.email}}</div>
+                </div>
+            </div>
+
+
+            <div style="width:100%;height:10px;background: #edf1f4"></div>
+            <div class="row row_title" ng-click="onChanceShow()">
+                <div class="col col-33 row_title_col_one" style="text-align:left;">
+                    <i class="icon-sf-shareholders_infor icon_position" style="color:#FF5A3A;"></i>
+                    <span style="font-size:16px;font-weight: 600;">股东信息</span>
+                </div>
+                <div class="col col-67 row_title_col_tow" style="text-align:right;color:#a2a2a2;">
+                    <span id="iconId2" class="icon-sf-packup_btn"></span>
+                </div>
+            </div>
+
+            <div ng-show="chanceShow" class="con_padding_left">
+                <div ng-repeat="p in EnterpriseDetail.partners">
+                    <div class="row actRow">
+                        <div class="col col-40 padding_no left_color">股东类型</div>
+                        <div class="col col-60 padding_right" style="text-align:right;">{{p.stockType}}</div>
+                    </div>
+
+                    <div class="row actRow">
+                        <div class="col col-40 padding_no left_color">股东姓名</div>
+                        <div class="col col-60 padding_right" style="text-align:right;">{{p.name}}</div>
+                    </div>
+                    <div class="row actRow">
+                        <div class="col col-40 padding_no left_color">认缴出资额</div>
+                        <div class="col col-60 padding_right" style="text-align:right;">{{p.shouldCapis[0].shouldCapi}}</div>
+                    </div>
+
+                    <div class="row actRow" style="padding:10px 0px;line-height:20px;">
+                        <div class="col col-40 padding_no left_color">出资时间</div>
+                        <div class="col col-60 padding_right" style="text-align:right;">{{p.shouldCapis[0].shouldCapiDate}}</div>
+                    </div>
+                    <div class="row actRow last-row">
+                        <div class="col col-40 padding_no left_color">出资方式</div>
+                        <div class="col col-60 padding_right" style="text-align:right;">{{p.shouldCapis[0].investType}}</div>
+                    </div>
+                    <div style="margin-left:-33px!important;width: 360px;height:1px;background:#e3e3e3"></div>
+                </div>
+            </div>
+
+            <div style="width:100%;height:10px;background: #edf1f4"></div>
+            <div class="row row_title" ng-click="onDemandShow()">
+                <div class="col col-33 row_title_col_one" style="text-align:left;">
+                    <i class="icon-sf-main_members icon_position" style="color:#41CD5E;"></i>
+                    <span style="font-size:16px;font-weight: 600;">主要成员</span>
+                </div>
+                <div class="col col-67 row_title_col_tow" style="text-align:right;color:#a2a2a2;">
+                    <span id="iconId3" class="icon-sf-packup_btn"></span>
+                </div>
+            </div>
+
+            <div ng-show="demandShow" class="con_padding_left">
+                <div class="row actRow" ng-repeat="e in EnterpriseDetail.employees">
+                    <div class="col col-40 padding_no left_color">{{e.jobTitle}}</div>
+                    <div class="col col-60 padding_right" style="text-align:right;">{{e.name}}</div>
+                </div>
+            </div>
+
+            <div style="width:100%;height:10px;background: #edf1f4"></div>
+            <div class="row row_title" ng-click="onSysNote()">
+                <div class="col col-33 row_title_col_one" style="text-align:left;">
+                    <i class="icon-sf-register_infor icon_position" style="color:#F29C09;"></i>
+                    <span style="font-size:16px;font-weight: 600;">登记信息</span>
+                </div>
+                <div class="col col-67 row_title_col_tow" style="text-align:right;color:#a2a2a2;">
+                    <span id="iconId4" class="icon-sf-packup_btn"></span>
+                </div>
+            </div>
+
+            <div ng-show="sysNote" class="con_padding_left">
+                <div class="row actRow">
+                    <div class="col col-40 padding_no left_color">企业类型</div>
+                    <div class="col col-60 padding_right" style="text-align:right;"><span ng-show="!EnterpriseDetail.companyType">/</span>{{EnterpriseDetail.companyType}}</div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-40 padding_no left_color">经营状态（在业）</div>
+                    <div class="col col-60 padding_right" style="text-align:right;"><span ng-show="!EnterpriseDetail.operatingState">/</span>{{EnterpriseDetail.operatingState}} {{EnterpriseDetail.creatorUser}}</div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-40 padding_no left_color">企业注册号</div>
+                    <div class="col col-60 padding_right" style="text-align:right;"><span ng-show="!EnterpriseDetail.companyRegistrationNumber">/</span>{{EnterpriseDetail.companyRegistrationNumber}}</div>
+                </div>
+                <div class="row actRow">
+                    <div class="col col-40 padding_no left_color">统一社会信用代码</div>
+                    <div class="col col-60 padding_right" style="text-align:right;"><span ng-show="!EnterpriseDetail.unifiedSocialCreditCode">/</span>{{EnterpriseDetail.unifiedSocialCreditCode}} {{EnterpriseDetail.modifiedUser}}</div>
+                </div>
+                <div class="row actRow last-row">
+                    <div class="col col-40 padding_no left_color">组织机构号</div>
+                    <div class="col col-60 padding_right" style="text-align:right;"><span ng-show="!EnterpriseDetail.organizationCode">/</span>{{EnterpriseDetail.organizationCode}}</div>
+                </div>
+            </div>
+
+            <div style="width:100%;height:10px;background: #edf1f4"></div>
+            <div class="row row_title" ng-click="onBranch()">
+                <div class="col col-33 row_title_col_one" style="text-align:left;">
+                    <i class="icon-sf-branch icon_position" style="color:#F29C09;"></i>
+                    <span style="font-size:16px;font-weight: 600;">分支机构</span>
+                </div>
+                <div class="col col-67 row_title_col_tow" style="text-align:right;color:#a2a2a2;">
+                    <span id="iconId5" class="icon-sf-packup_btn"></span>
+                </div>
+            </div>
+
+            <div ng-show="branch" class="con_padding_left">
+
+                <div class="row actRow last-row">
+                    <div class="col col-40 padding_no left_color">分支机构名称</div>
+                    <div class="col col-60 padding_right" style="text-align:right;"><span ng-repeat="b in EnterpriseDetail.branches"><span ng-show="!b.branchesName">/</span>{{b.branchesName}}<br/></span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="width:100%;height:10px;background: #edf1f4"></div>
+            <div id="H6" class="row row_title" ng-click="onChangeHistory()">
+                <div class="col col-45 row_title_col_one" style="text-align:left;">
+                    <i class="icon-sf-change_history" style="color:#F29C09;font-size: 16px;"></i>
+                    <span style="font-size:16px;font-weight: 600;">变更历史记录</span>
+                </div>
+                <div class="col col-55 row_title_col_tow" style="text-align:right;color:#a2a2a2;">
+                    <span id="iconId6" class="icon-sf-unfold_btn"></span>
+                </div>
+            </div>
+
+            <div ng-show="changeHistory" style="background: #edf1f4;">
+                <ion-item style="padding:0px;margin-bottom:5px;" ng-repeat="history in EnterpriseDetail.changeRecords">
+                    <div>
+                        <div class="div_flex" style="padding:12px;border-bottom:1px solid #edf1f4;">
+                            <div><span ng-show="!history.changeDate">/</span>{{history.changeDate}}</div>
+                            <div class="one_Divide" style="padding-left:15px;">变更项目：{{history.changeItem}}</div>
+                        </div>
+                        <div class="div_flex" style="padding:12px;font-size: 13px;">
+                            <div class="one_Divide">
+                                <div style="color:#a2a2a2;">变更前内容</div>
+                                <div style="line-height:20px;">{{history.beforeContent}}</div>
+                            </div>
+                            <span class="vertical_line"></span>
+                            <div class="one_Divide">
+                                <div style="color:#a2a2a2;">变更后内容</div>
+                                <div style="line-height:20px;">
+                                    <span>{{history.afterContent}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-item>
+            </div>
+            <!--<div style="width:100%;height:15px;background: #edf1f4;text-align: center;">数据来源：启信宝</div>-->
+        </div>
+    </ion-content>
+</ion-view>

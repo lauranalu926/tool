@@ -1,0 +1,61 @@
+<ion-view view-title="企业信息查询" hide-tabs>
+    <ion-nav-title>
+        <span class="nav_title">企业信息查询</span>
+    </ion-nav-title>
+    <div class="bar bar-subheader" style="padding:0;border:0px;width:100%;background-color:#EDF1F4">
+        <form id="searchForm">
+            <div class="item-input-inset search_inset">
+                <div class="item-input-wrapper search_wrapper div_flex">
+                    <div class="one_Divide div_flex">
+                        <input class="search_input one_Divide" ng-model="keyVal" ng-change="startDot()" type="search" placeholder="企业名称" id="inputSearch" >
+                        <i class="ion-close-circled vertical_middle" id="search_close_btn" style="color: #CCCCCC;display: none;padding: 0px 7px;" ng-click="clearAll()"></i>
+                    </div>
+                    <span class="search_vertical_line"></span>
+                    <div style="width:20px;">
+                        <i class="icon icon-sf-search search_ico_btn" ng-click="EnterpriseSearch()"></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div style="padding:12px;background:#fff;">
+            <div ng-show="isShowHistory">
+                <span style="font-size:15px;">最近搜索过的</span>
+                <i class="ion-ios-trash-outline" style="font-size:20px; float: right;" ng-click="removeHistory()"></i>
+            </div>
+            <div ng-show=isShowNum style="color: #EE9700;">
+                <span style="font-size:12px;">搜索到 {{itemCount}}条 的符合条件数据，建议输入企业全称</span>
+            </div>
+        </div>
+    </div>
+
+    <ion-content overflow-scroll="false" scrollbar-y="false" style="width:100%;margin-top:106px;background-color: #EDF1F4;">
+        <div ng-show="isShowHistory" style="padding: 12px;background-color: #fff;">
+            <div ng-repeat="h in historyObj" class="history_tab" >
+                <span style="color: #FFF;font-size: 12px;" ng-model="historyTabVal" ng-click="clickHistoryTab(h)">{{h}}</span>
+            </div>
+        </div>
+
+
+        <ion-item ng-show="isShowList" style="padding:0px;margin-bottom:5px;" ng-repeat="d in itemList" class="item" ng-click="enterpriseDetial('{{d.name}}')">
+            <div>
+                <div class="div_flex" style="padding:12px;border-bottom:1px solid #edf1f4;">
+                    <div class="one_Divide">{{d.name}}</div>
+                </div>
+                <div class="div_flex" style="padding:12px;font-size: 13px;">
+                    <div class="one_Divide">
+                        <div style="color:#a2a2a2;">法人代表</div>
+                        <div class="over_ell">{{d.operName}}</div>
+                    </div>
+                    <span class="vertical_line"></span>
+                    <div class="one_Divide">
+                        <div style="color:#a2a2a2;">成立日期</div>
+                        <div class="over_ell">
+                            <span>{{d.startDate}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ion-item>
+    </ion-content>
+
+</ion-view>

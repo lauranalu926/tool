@@ -1,0 +1,133 @@
+<ion-view view-title="名片夹" hide-nav-bar="false" hide-tabs style="background: #edf1f4;">
+    <ion-nav-buttons side="right">
+        <!--   <span class="ion-search" ng-click="information()" style="right:10px;font-size:32px;"></span> -->
+        <i class="icon-sf-add add_style" on-touch="showPop($event)"></i>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader"
+         style="padding:0;border:0px;width:100%;background-color:#fff;height:44px;line-height:50px;">
+        <div style="width:100%;height:10px;background: #edf1f4"></div>
+        <form id="searchForm">
+            <div class="item-input-inset search_inset">
+                <div class="item-input-wrapper search_wrapper div_flex">
+                    <div class="one_Divide div_flex">
+                        <input id="inputSearch" ng-model="query" class="search_input one_Divide"  ng-change="startDot()" type="search" placeholder="联系人/电话/客户名称/客户地址" id="inputSearch" >
+                        <i id="search_close_btn" class="ion-close-circled vertical_middle"  style="color: #CCCCCC;display: none;padding: 0px 7px;" ng-click="clearAll()"></i>
+                    </div>
+                    <span class="search_vertical_line"></span>
+                    <div style="width:20px;margin-top:8px;">
+                        <i class="icon icon-sf-search search_ico_btn" ng-click="AllNetSearch()"></i>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <ion-content overflow-scroll="false" scrollbar-y="false" style="overflow: hidden;background:#fff;margin-top:74px;">
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"
+                       spinner="ios-small"></ion-refresher>
+
+
+        <ion-item class="div_flex" style="border: 0px;background: #fff;padding:15px 12px; margin: 10px 0px;" ng-click="onTags('tool')">
+            <h2 class="one_Divide">标签</h2>
+            <i class="icon ion-chevron-right dark" style="color:#a2a2a2;"></i>
+        </ion-item>
+
+        <div ng-repeat="cardHoler in cardHolderResult ">
+            <div class="zimu" id="card{{cardHoler.type}}"
+                 style="padding-left: 12px;font-weight:700;height:20px;width:100%;background-color:#EDF1F4;border-bottom:solid 1px #ddd;">
+                {{cardHoler.type}}
+            </div>
+
+            <ion-item ng-repeat="card in cardHoler.list" style="padding:0px;"
+                      class="item">
+                <div>
+                    <div class="row" style="padding:10px 12px;margin:0;"
+                         ng-click="onCardDetail('{{card.id}}')">
+                        <div class="col col-25 col-center padding_no"
+                             style="border:1px solid #ddd;">
+                            <img ng-show="card.photoName==''?true:false"
+                                 ng-src="{{modifyPersonImg}}" style="width:100%;">
+                            <img ng-show="card.photoName!=''?true:false"
+                                 ng-src="{{photoUrl}}{{card.photoName}}{{tokenUrl}}" style="width:100%;">
+                        </div>
+
+                        <div class="col col-75 padding_no" style="margin-left: 5px;">
+                            <div class="row over_ell">
+                                <div>
+                                    <span style="color:#333;font-size:17px;">{{card.contacts}}</span>
+                                    <span style="color:#a2a2a2;font-size:14px;margin-left: 5px;">{{card.position}}</span>
+                                </div>
+                            </div>
+                            <div class="row over_ell">
+                                <div>
+                                    <span style="color:#a2a2a2;font-size:14px;">{{card.companyName}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-item>
+        </div>
+
+        <ion-infinite-scroll ng-if="moreData" on-infinite="loadMore()" spinner="ios-small"
+                             distance="2%" immediate-check></ion-infinite-scroll>
+
+    </ion-content>
+
+    <script id="popoverId" type="text/ng-template">
+        <ion-popover-view class="unfold_junior">
+            <i class="ion-android-arrow-dropup unfold_trigon"></i>
+
+            <div>
+                <div class="unfold_list" ng-click="selectPop(1)">
+                    <div>扫描名片</div>
+                </div>
+
+                <div class="unfold_list" ng-click="selectPop(2)">
+                    <div>手动创建名片</div>
+                </div>
+
+                <div class="unfold_last_list" ng-click="selectPop(3)">
+                    <div>本地图片创建名片</div>
+                </div>
+            </div>
+        </ion-popover-view>
+    </script>
+
+    <div id="charDiv" ng-show="true" style="border-radius: 20px; margin-top:210px;" id="mIndex"
+         class="rj-contacts-right-bar" on-release="mRelease()" on-touch="mNoTouch($event)">
+        <div style="font-size:20px;">&uarr;</div>
+        <div style="font-size:20px;" class="ion-loop"></div>
+        <div id="A">A</div>
+        <div id="B">B</div>
+        <div id="C">C</div>
+        <div id="D">D</div>
+        <div id="E">E</div>
+        <div id="F">F</div>
+        <div id="G">G</div>
+        <div id="H">H</div>
+        <div id="I">I</div>
+        <div id="J">J</div>
+        <div id="K">K</div>
+        <div id="L">L</div>
+        <div id="M">M</div>
+        <div id="N">N</div>
+        <div id="O">O</div>
+        <div id="P">P</div>
+        <div id="Q">Q</div>
+        <div id="R">R</div>
+        <div id="S">S</div>
+        <div id="T">T</div>
+        <div id="U">U</div>
+        <div id="V">V</div>
+        <div id="W">W</div>
+        <div id="X">X</div>
+        <div id="Y">Y</div>
+        <div id="Z">Z</div>
+        <div id="#">#</div>
+
+    </div>
+    <div ng-show="isShow" class="rj-contacts-middle-bar">
+        {{hint}}
+    </div>
+
+</ion-view>

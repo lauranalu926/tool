@@ -1,0 +1,76 @@
+<ion-view view-title="核对名片" hide-nav-bar="false" hide-tabs>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="cardSave()" on-hold="popupMessageOpthins()"><span style="color:white;font-size:17px;font-weight:bold;">保存</span>
+    </button>
+    </ion-nav-buttons>
+
+    <div class="bar bar-subheader" style="padding:0;border:0px;height:67px;width:100%;">
+        <img class="full-image" style="height:200px;" ng-src={{cardResult.imagePath}}>
+    </div>
+
+    <ion-content overflow-scroll="false" class="has-subheader" style="top:264px">
+        <div style="height:12px;width:100%;background-color:#EDF1F4;border-bottom:solid 1px #F0F1F1;"></div>
+        <div>
+            <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                <div class="col col-30" style="text-align:left;"><span style="color:#09A8FC">联系人</span></div>
+                <div class="col col-70" style="text-align:left;"><input style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" ng-model="cardResult.contactName"></div>
+            </div>
+        </div>
+        <div style="height:12px;width:100%;background-color:#EDF1F4;border-bottom:solid 1px #F0F1F1;"></div>
+
+        <div>
+            <div>
+                <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                    <div class="col col-30" style="text-align:left;"><span style="color:#09A8FC">公司名称</span></div>
+                    <div class="col col-70" style="text-align:left;"><input style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" ng-model="cardResult.companyName"></div>
+                </div>
+            </div>
+            <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                <div class="col col-30" style="text-align:left;"><span style="color:#09A8FC">职位</span></div>
+                <div class="col col-70" style="text-align:left;"><input style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" ng-model="cardResult.jobTitle"></div>
+            </div>
+        </div>
+        <div style="height:12px;width:100%;background-color:#EDF1F4;border-bottom:solid 1px #F0F1F1;"></div>
+
+        <div>
+            <div>
+                <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                    <div class="col col-30" style="text-align:left;" ng-click="onName()"><span style="color:#09A8FC">手机</span></div>
+                    <div class="col col-70" style="text-align:left;"><input style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" ng-model="cardResult.phoneCell"></div>
+                </div>
+            </div>
+            <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                <div class="col col-30" style="text-align:left;" ng-click="onName()"><span style="color:#09A8FC">工作电话</span></div>
+                <div class="col col-70" style="text-align:left;"><input style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" ng-model="cardResult.workCell"></div>
+            </div>
+        </div>
+
+        <div style="height:12px;width:100%;background-color:#EDF1F4;border-bottom:solid 1px #F0F1F1;"></div>
+        <div>
+            <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                <div class="col col-30" style="text-align:left;"><span style="color:#09A8FC">工作邮箱</span></div>
+                <div class="col col-70" style="text-align:left;"><input style="border:1px;border-bottom-style:none;border-top-style:none;border-left-style:none;border-right-style:none;" ng-model="cardResult.workEmail"></div>
+            </div>
+        </div>
+
+        <div style="height:12px;width:100%;background-color:#EDF1F4;border-bottom:solid 1px #F0F1F1;"></div>
+
+        <div>
+            <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                <div class="col col-30" style="text-align:left;"><span style="color:#09A8FC">公司地址</span></div>
+                <div class="col col-70" style="text-align:left;"><textarea style="width:100%; resize:none;" ng-model="cardResult.companyAddress"></textarea></div>
+            </div>
+        </div>
+        <div style="height:12px;width:100%;background-color:#EDF1F4;border-bottom:solid 1px #F0F1F1;"></div>
+
+        <div>
+            <div class="row" style="border-bottom:solid 1px #F0F1F2;">
+                <div class="col col-30" style="text-align:left;"><span style="color:#09A8FC">备注</span></div>
+                <div class="col col-70" style="text-align:left;"><textarea style="width:100%; resize:none;" ng-model="cardResult.remark"></textarea></div>
+            </div>
+        </div>
+
+        <div style="height:12px;width:100%;background-color:#EDF1F4;border-bottom:solid 1px #F0F1F1;"></div>
+    </ion-content>
+
+</ion-view>

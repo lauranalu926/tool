@@ -1,0 +1,29 @@
+<ion-view view-title="标签" hide-nav-bar="false" hide-tabs style="background: #edf1f4;">
+
+    <ion-nav-buttons side="right">
+        <span class="right_save" ng-click="newCreateTag()">新建</span>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="false" style="overflow: hidden;background: #edf1f4;margin-top:10px;">
+        <ion-item on-hold="onHold({{d.id}})" ng-repeat="d in tagsList"  style="border:0px;margin-bottom:10px;background:#fff; padding:15px;" class="item"  ng-click="itemOnclick({{d.id}})">
+            <div>
+                <span>{{d.labelName}}</span>
+                <span >(</span><span >{{d.counts}}</span><span >)</span>
+            </div>
+            <i style="position: absolute;top:16px; right:12px;color:#a2a2a2;" class="icon ion-chevron-right dark"></i>
+        </ion-item>
+
+
+          <div class="div_btn_login" style="color:#a2a2a2;padding-top:80px;" ng-show="isShow" >
+              <div style="width:100%;text-align:center;font-size:18px;">暂无标签</div>
+              <div style="width:100%;text-align:center;padding-top:30px;padding-bottom:150px;">你可以通过名片夹添加标签来进行分类</div>
+              <div style="padding:0px 40px;">
+                  <button  class="button button-my-login"  style="font-size:14px;"  ng-click="newCreateTag()">
+                      新建
+                  </button>
+              </div>
+          </div>
+
+    </ion-content>
+
+
+</ion-view>

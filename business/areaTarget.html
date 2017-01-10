@@ -1,0 +1,133 @@
+<ion-view view-title="区域目标" hide-tabs>
+    <style type="text/css">
+        table
+        {
+        border-collapse:collapse;
+        width:100%;
+        }
+        td, th
+        {
+        border:1px solid black;
+        padding:0px;
+        font-size:10px;
+        }
+        #main{
+        width: 100%;
+        height:400px;
+        margin-left:25px;
+        margin-top:20px
+        }
+    </style>
+    <ion-content overflow-scroll="false" scrollbar-y="false" style="overflow: hidden">
+        <div class="row right" style="padding:8px;">
+            <div class="col col-30" style="padding:12px;text-align:center;font-size:18px;">
+                分点部
+            </div>
+            <div  class="col col-60 col-center " >
+                {{ValueAddedServicesStr}}
+            </div>
+            <div class="col col-10" style="padding:0px;text-align:right;">
+                <a class="button icon-left icon-right ion-arrow-down-b button-clear button-dark"
+                   style="font-size:14px;min-width:0;min-height:0;color:#CBCBCB;"
+                   ng-click="onValueAddedServices()"></a>
+            </div>
+
+        </div>
+        <div class="row right" style="padding:8px;">
+            <div class="col col-30" style="padding:12px;text-align:center;font-size:18px;">
+                日期
+            </div>
+            <div class="col col-10" style="padding:0px;">
+                <a class="button icon-left ion-arrow-left-b button-clear button-dark"
+                   style="font-size:14px;min-width:0;min-height:0;color:#CBCBCB;"
+                   ng-click="psDay(-1)"></a>
+            </div>
+            <div class="col col-30 col-center" ng-controller="DateController"
+                 style="padding:8px 0;text-align:center;">
+                <input onchange="angular.element(this).scope().dayChange()" ng-model="day"
+                       mobiscroll-date="settingsDay" placeholder="请选择日期" type="text"
+                       style="width:100%;text-align:center;font-size:18px;" id="chooseDay"/>
+            </div>
+            <div class="col col-10" style="padding:0px;text-align:right;">
+                <a class="button icon-left icon-right ion-arrow-right-b button-clear button-dark"
+                   style="font-size:14px;min-width:0;min-height:0;color:#CBCBCB;"
+                   ng-click="psDay(1)"></a>
+            </div>
+            <div class="col col-20" style="padding:0px;text-align:right;">
+            </div>
+        </div>
+        <hr size="1" style="width:100%;height:1px;"/>
+        <table>
+            <tr class="row ">
+                <td class="col col-10">
+                    分点部代码
+                </td>
+                <td class="col col-10">
+                    当日件量
+                </td>
+                <td class="col col-10">
+                    当日收入
+                </td>
+                <td class="col col-10">
+                    当日目标达成
+                </td>
+                <td class="col col-10">
+                    本月日均
+                </td>
+                <td class="col col-10">
+                    本月日均环比
+                </td>
+                <td class="col col-10">
+                    本月累计件量
+                </td>
+                <td class="col col-10">
+                    本月累计收入
+                </td>
+                <td class="col col-10">
+                    本月目标达成
+                </td>
+                <td class="col col-10">
+                    日均目标
+                </td>
+            </tr>
+
+            <tr class="row">
+                <td class="col col-10">
+                    755K
+                </td>
+                <td class="col col-10">
+                    14,320
+                </td>
+                <td class="col col-10">
+                    220,972
+                </td>
+                <td class="col col-10">
+                    71.6%
+                </td>
+                <td class="col col-10">
+                    194,224
+                </td>
+                <td class="col col-10">
+                    -28.3%
+                </td>
+                <td class="col col-10">
+                    347,766
+                </td>
+                <td class="col col-10">
+                    5,399,426
+                </td>
+                <td class="col col-10">
+                    62.9%
+                </td>
+                <td class="col col-10">
+                    308,546
+                </td>
+            </tr>
+        </table>
+
+        <div id="main" style="width:100%; margin:0 auto;"></div>
+
+
+    </ion-content>
+
+</ion-view>

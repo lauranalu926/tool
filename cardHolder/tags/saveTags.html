@@ -1,0 +1,77 @@
+<ion-view view-title="保存标签" hide-nav-bar="false" hide-back-button="true" hide-tabs
+          style="background: #edf1f4;">
+    <ion-nav-buttons side="right">
+        <span class="right_save" ng-click="saveOnclick()">保存</span>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+        <div class="left_cancel" on-touch="backOnclick()">
+            取消
+        </div>
+    </ion-nav-buttons>
+
+    <div class="bar bar-subheader" style="padding:0;border:0px;width:100%;background-color:#EDF1F4">
+        <div class="row tagRow">
+            <div class="col col-30 padding_no left_color" style="font-size:16px;color:#0000;">
+                标签名称<span style="color:red;">*</span>
+            </div>
+            <div class="col col-70 padding_right vertical_middle">
+                <input style="font-size:16px;width:100%;text-align:right;" value="{{saveTagName}}" id="tagsId" type="text" placeholder="必填"/>
+            </div>
+        </div>
+        <div class="row tagRow">
+            <div class="col col-30 padding_no left_color" style="font-size:16px;color:#0000;">
+                添加新成员
+            </div>
+            <div class="col col-70 padding_right">
+                <div style="text-align:right; font-size:26px; color:#A2A2A2;">
+                    <i class="ion-ios-plus-outline" ng-click="addOnclick()"style="padding:10px;"></i>
+                    <i ng-show="false" class="ion-ios-minus-outline" ng-click="finish()" style="padding:10px;"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <ion-content overflow-scroll="false" style="overflow: hidden;background:#edf1f4;margin-top:130px;">
+
+        <ion-item id="L{{d.id}}" class="item" style="padding: 5px 0px 5px 10px;" ng-repeat="d in contactsList">
+            <div ng-click="onClickItemFinish({{d.id}})">
+                <div class="row">
+                    <div class="col col-25 col-center padding_no"
+                         style="border:1px solid #ddd;">
+                        <img ng-show="d.photoName==''?true:false"
+                             ng-src="{{modifyPersonImg}}" style="width:100%;">
+                        <img ng-show="d.photoName!=''?true:false"
+                             ng-src="{{photoUrl}}{{d.photoName}}" style="width:100%;">
+                    </div>
+
+                    <div class="col col-75 padding_no" style="margin-left: 5px;">
+                        <div class="row over_ell">
+                            <div>
+                                <span style="color:#333;font-size:17px;">{{d.contacts}}</span>
+                                <span style="color:#a2a2a2;font-size:14px;margin-left: 5px;">{{d.position}}</span>
+                            </div>
+                        </div>
+                        <div class="row over_ell">
+                            <div>
+                                <span style="color:#a2a2a2;font-size:14px;">{{d.companyName}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <i style=" position: absolute;top:2px;left:10px;color:red;" ng-show="isShow" class="ion-minus-circled"></i>
+            </div>
+
+        </ion-item>
+
+        <div ng-show="false" class="div_btn_login">
+            <button class="button button-my-login" style="font-size:14px;"
+                    ng-click="clearAllTags()">
+                删除标签
+            </button>
+        </div>
+    </ion-content>
+
+
+</ion-view>
